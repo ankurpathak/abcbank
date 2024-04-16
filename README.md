@@ -8,7 +8,7 @@ ABC Bank is a web application for bank management. It is developed using Java (v
 
 ## Microservices
 
-The application is divided into three microservices:
+The application is divided into five microservices:
 
 ### 1. Customer Service
 
