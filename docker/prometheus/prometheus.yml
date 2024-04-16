@@ -1,0 +1,30 @@
+global:
+  scrape_interval: 2s
+  evaluation_interval: 2s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+  - job_name: 'ACCOUNT-SERVICE'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8886'] ## only for demo purposes don't use host.docker.internal in production
+  - job_name: 'AUTH-SERVICE'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8885'] ## only for demo purposes don't use host.docker.internal in production
+  - job_name: 'CUSTOMER-SERVICE'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8887'] ## only for demo purposes don't use host.docker.internal in production
+  - job_name: 'DISCOVERY-SERVICE'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:8761' ] ## only for demo purposes don't use host.docker.internal in production
+  - job_name: 'GATEWAY-SERVICE'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:8888' ] ## only for demo purposes don't use host.docker.internal in production
+
+

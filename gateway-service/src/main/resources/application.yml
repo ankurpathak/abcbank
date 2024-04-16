@@ -1,0 +1,86 @@
+server:
+  port: 8888
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:4200"
+              - "http://localhost:8761"
+              - "http://localhost:8887"
+              - "http://localhost:8886"
+              - "http://localhost:8885"
+              - "http://localhost:8889"
+            allowedHeaders:
+              - Content-Type
+              - Authorization
+            exposedHeaders:
+              - Content-Type
+              - Authorization
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /AUTH-SERVICE/v3/api-docs
+        name: Auth Service Service
+      - url: /CUSTOMER-SERVICE/v3/api-docs
+        name: Customer Service
+      - url: /ACCOUNT-SERVICE/v3/api-docs
+        name: Account Service
+      - url: /NOTIFICATION-SERVICE/v3/api-docs
+        name: Notification Service
+      - url: /TRANSACTION-SERVICE/v3/api-docs
+        name: Transaction Service
+    use-root-path: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  observations:
+    key-values:
+      application: GATEWAY-SERVICE
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+
+
+
+
+
+
