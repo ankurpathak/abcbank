@@ -1,6 +1,6 @@
 # ABC Bank
 
-ABC Bank is a web application for bank management. It is developed using Java (version 17), Spring Boot (version 3.1.2), Spring Cloud, Spring Security, Angular (version 16.2.2), MySQL, and Maven.
+ABC Bank is a web application for bank management. It is developed using Java, Kotlin, Spring Boot, Spring Cloud, Spring Security, Angular, MySQL, Gradle,and Maven.
 
 ## Architecture
 
@@ -55,6 +55,10 @@ Before running the application, ensure that you have the following prerequisites
 - Angular CLI 16.2.2
 - MySQL
 - Maven
+- Gradle
+- Kotlin
+- Grafana Stack(Loki, Tempo, Prometheus, Grafana)
+- Docker/Docker Compose
 
 ## Getting Started
 
