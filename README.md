@@ -102,6 +102,14 @@ Before running the application, ensure that you have the following prerequisites
 
 - Security is implemented using JWT tokens.
 
+## Scalability
+
+Application is implemented using Microservice Architecture, so each microservice is independently scalable by deploying multiple instance of same.
+
+## Choice Of Database
+
+- As it's a financial application dealing with the transaction of fund transfers between different accounts, consistency is preferable in CAP. And also, the write load on the system will be higher as it involves transactions. So I will prefer some database that supports LMV trees and SSTable-based indexes instead of BTree. Databases should support partitioning, so write loads can be scattered based on hash ranges. Some parts of the application still don't need consistency from CAP, like customer information, so replicas or followers can also increase the performance of the read load. I will prefer some databases that support single-leader replication instead of multiple-reader replication or leader-less replication to avoid write conflicts. The obvious choice is MySQL, though it uses BTree instead of LMV trees and SSTable.
+
 
 
 
