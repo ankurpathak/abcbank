@@ -46,7 +46,7 @@ services:
     ports:
       - "3000:3000"
   smtp:
-    image: haravich/fake-smtp-server
+    image: haravich/fake-smtp-server:1.0.1
     ports:
       - "1025:1025"
       - "1080:1080"
